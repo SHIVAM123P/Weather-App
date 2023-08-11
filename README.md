@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+You can clone the Project locally and then open it in your choice of Code Editor:
+RUN: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `npm i`
+To install all the required dependencies.
 
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
