@@ -31,11 +31,16 @@ function App() {
 
   const fetchWeatherData = async () => {
     try {
-      // Fetch weather data from the API based on the location input
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=b39a0b524275183afbf205727b93609d`
       );
-
+  
+      if (response.status === 429) {
+        // If rate limit is exceeded (status code 429), handle it gracefully
+        setErrorMessage("API rate limit exceeded. Please try again later.");
+        return;
+      }
+  
       if (response.ok) {
         // If the response status is OK, proceed to parse and set the weather data
         const data = await response.json();
@@ -49,6 +54,7 @@ function App() {
       console.error("Error fetching weather data:", error);
     }
   };
+  
 
   const getLocation = () => {
     if (navigator.geolocation) {
