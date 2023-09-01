@@ -46,10 +46,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -59,21 +56,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 400px;
-  /* max-width: 400px; */
-  margin: 0 auto;
-  padding: 20px;
+  width: 500px;
+  height: 500px;
+  
   border: 1px solid #ddd;
-  border-radius: 5px;
   background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border-radius: 35px;
 }
-
 .weather-details {
-  text-align: center;
-  margin: 20px 0;
+ 
   color: #282c34;
+  
+  width: 400px;
+  height: 480px;
 }
 
 .weather-icon {
@@ -92,6 +88,23 @@
   align-items: center;
   margin-bottom: 20px;
 }
+
+.inputbox {
+  height: 40px; 
+  width: 100%; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 
 input[type="text"] {
   padding: 10px;
@@ -115,11 +128,42 @@ input[type="text"] {
   background-color: #0056b3;
 }
 
-.back-icon{
-  position: relative;
-  right:200px;
-  bottom: 20px;
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  position: relative; 
+  right: 2em;
+  transition: background-color 0.3s, transform 0.2s;
 }
+
+.back-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.back-button span {
+  margin-right: 5px;
+}
+
+.back-button:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .back-button {
+    top: 5px; 
+    left: 5px; 
+    padding: 3px 6px; 
+  }
+}
+
+
 
 .getWeather{
   position: relative;
@@ -128,16 +172,94 @@ input[type="text"] {
 
 
 
-
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
+.para{
+  /* margin: 0 10px; */
+  color: #282c34;
+  font-weight: bold;
 }
 
 
-.para{
-  margin: 0 10px;
-  color: #282c34;
-  font-weight: bold;
+/* Add a media query for screens with max-width of 600px */
+@media (max-width: 600px) {
+  .weather-card {
+    width: 80%; 
+    padding: 20px; 
+  }
+
+  .back-icon {
+    right: 10px; 
+    bottom: 5px;
+  }
+
+  
+
+  .input-container {
+    margin-bottom: 10px; 
+  }
+
+  input[type="text"] {
+    padding: 8px; 
+    margin-bottom: 8px; 
+  }
+
+  #button {
+    padding: 8px 16px; 
+  }
+}
+
+
+.weather-columns {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between columns */
+}
+
+.weather-column1,
+.weather-column2 {
+  flex: 1;
+}
+
+.centerTemp{
+  font-size: 56px;
+  margin: 0;
+}
+
+.centerMain{
+  margin: 0;
+  font-size: 30px;
+}
+
+.centerRow {
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 20px;
+}
+
+.centerRow p {
+  margin: 0;
+  padding: 0; 
+}
+
+.centerRow .center {
+  margin-left: 8px; 
+}
+
+
+.centerRow1 {
+  font-size: 15px;
+  display: flex; 
+  align-items: center; 
+}
+
+.centerRow1 p {
+  margin: 0; 
+  padding: 0; 
+}
+
+.centerRow1 .center {
+  margin-left: 8px; 
+}
+
+.Location{
+  margin:  0 0 20px 0;
 }
